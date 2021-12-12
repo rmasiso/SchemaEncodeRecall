@@ -126,9 +126,9 @@ Files will be saved in the default or (your desired) directory.
 
 #### (1) Generate Clusters
 
-First we have to run the silhouette analysis and save out the clusters.
-Go to the jupyter notebook: ``05_Kmeans.ipynb`` and run all the cells.
-The clusters will be saved into`` /_data/`` as ``mPFC_c0.h5`` and ``mPFC_c1.h5`` 
+1. First we have to run the silhouette analysis and save out the clusters.
+2. Go to the jupyter notebook: ``05_Kmeans.ipynb`` and run all the cells.
+3. The clusters will be saved into`` /_data/`` as ``mPFC_c0.h5`` and ``mPFC_c1.h5`` 
 
 #### (2) Create Encoding and Reinstatement Story and Schema Scores
 
@@ -136,29 +136,32 @@ Run the encoding and reinstatement story and schema scores:
 
 **ENCODING**
 
-Open ``02_PerceptionStorySchema_ROIs_step0.sh`` and uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
-Run in terminal with: ``sh 02_PerceptionStorySchema_ROIs_step0.sh 20211014 within_modality``
+1. Open ``02_PerceptionStorySchema_ROIs_step0.sh``
+2. Uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
+3. Run in terminal with: ``sh 02_PerceptionStorySchema_ROIs_step0.sh 20211014 within_modality``
 
 **REINSTATEMENT**
 
-Open ``02_RecallStorySchema_ROIs_step0.sh`` and uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
-Run in terminal with: ``sh 02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality``
+1. Open ``02_RecallStorySchema_ROIs_step0.sh`` 
+2. Uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
+3. Run in terminal with: ``sh 02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality``
 
 #### (3) Use scores in step 2 to predict behavior
 
-Open ``03_Predictions_ROIs_step0.sh`` and uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
-Run in terminal with: ``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
+1. Open ``03_Predictions_ROIs_step0.sh`` 
+2. Uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
+3. Run in terminal with: ``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
 
 #### (4) Visualize post-hoc mPFC subclusters results
 
-Open ``_ImportROIsSeeResults.ipynb``
-Find the section titled: ``Figure5; mPFC cluster results``
-Run the cells to output the bar graphs.
+1. Open ``_ImportROIsSeeResults.ipynb``
+2. Find the section titled: ``Figure5; mPFC cluster results``
+3. Run the cells to output the bar graphs.
 
 #### (4) Run Mediation Analysis
 
-Open the jupyter notebook ``05_Mediation.ipynb``
-Run all the cells
+1. Open the jupyter notebook ``05_Mediation.ipynb``
+2. Run all the cells
 
 
 
