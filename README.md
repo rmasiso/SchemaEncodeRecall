@@ -1,6 +1,3 @@
-# SchemaEncodeRecall
-SchemaEncodeRecall
-
 # Schema representations in distinct brain networks support narrative memory during encoding and retrieval
 Code for the paper Masís-Obando, Norman, & Baldassano (submitted) Schema representations in distinct brain networks support narrative memory during encoding and retrieval
 
@@ -66,14 +63,14 @@ sh  02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality
 #### Analysis
 
 **Searchlight ANALYSIS** 
-Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
-Find the cell Labeled **Figure 2**
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
+2. Find the cell Labeled **Figure 2**
+3. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS** 
-Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
-Find the cell labeled **Figure 2**
-Run to output violin plots 
+1. Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
+2. Find the cell labeled **Figure 2**
+3. Run to output violin plots 
 
 ### Figure 3: Predicting behavioral memory for story details with neural measures from encoding and recall. 
 
@@ -95,20 +92,22 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality
 
 **For both encoding and reinstatement:**
 In ```03_Predictions_ROIs_step0.sh```, make sure that ```rois=( PMC mPFC PHC Ang SFG )```
-​​```sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
+
+```sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
 
 #### Analysis
 
 
 **Searchlight ANALYSIS**
-Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
-Find the cell Labeled **Figure 3**
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
+2. Find the cell Labeled **Figure 3**
+3. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS**
-Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
-Find the cell labeled **Figure 3**
-Run to output violin plots 
+1. Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
+2. Find the cell labeled **Figure 3**
+3. Run to output violin plots 
+
 ### Figure 4. Regions with significant schema effects and positive associations with subsequent memory.
 
 #### SEARCHLIGHTS
@@ -212,16 +211,16 @@ sh 02S1_RecallStorySchema_WithinSubj_ROIs_step0.sh 20211014
 #### Analysis
 
 **Searchlight ANALYSIS** 
-Open the jupyter notebook labeled: ``_ ImportSearchlightsGenerateMaps.ipynb``
-Find the cell Labeled **Figure 2**
-Uncomment the line ``extra = within_modality_within_subj``
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ``_ ImportSearchlightsGenerateMaps.ipynb``
+2. Find the cell Labeled **Figure 2**
+3. Uncomment the line ``extra = within_modality_within_subj``
+4. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS** 
-Open the jupyter notebook labeled:  ``_ImportROIsSeeResults.ipynb``
-Find the cell labeled **Figure 2**
-Uncomment the line  ``extra = within_modality_within_subj``
-Run to output violin plots 
+1. Open the jupyter notebook labeled:  ``_ImportROIsSeeResults.ipynb``
+2. Find the cell labeled **Figure 2**
+3. Uncomment the line  ``extra = within_modality_within_subj``
+4. Run to output violin plots 
 
 ### Figure 2 - Supp 2 (Encoding and Reinstatement Story and Schema Across-Modality)
 
@@ -256,16 +255,16 @@ In ``02_RecallStorySchema_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC 
 #### Analysis
 
 **Searchlight ANALYSIS** 
-Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-Find the cell Labeled **Figure 2**
-Uncomment the line ``extra = ‘across_modality’ ``
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
+2. Find the cell Labeled **Figure 2**
+3. Uncomment the line ``extra = ‘across_modality’ ``
+4. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS**
-Open the jupyter notebook labeled: ``_ImportROIsSeeResults.ipynb``
-Find the cell labeled **Figure 2**
-Uncomment the line ``extra = ‘across_modality’``
-Run to output violin plots 
+1. Open the jupyter notebook labeled: ``_ImportROIsSeeResults.ipynb``
+2. Find the cell labeled **Figure 2**
+3. Uncomment the line ``extra = ‘across_modality’``
+4. Run to output violin plots 
 
 
 ### Figure 3–Figure supplement 1. Predicting PMC reinstatement story scores with encoding schema scores across cortex.
@@ -291,9 +290,9 @@ sh 03S2_SchemaBenefitModelComparisons_step1.sh
 Saves searchlight results under a folder called ``sl_percept_score_model_comparisons`` and ``sl_recall_score_model_comparisons`` for the benefit analysis at encoding and retrieval, respectively.
 
 #### Analysis:
-Find the cell labeled: ``Figure 3 - Supplement 2``
-Run the cell 
-Brainmap will be saved in ``../../SchemaBigFiles/_PaperOutputData`` under ``model comparisons``
+1. Find the cell labeled: ``Figure 3 - Supplement 2``
+2. Run the cell 
+3. Brainmap will be saved in ``../../SchemaBigFiles/_PaperOutputData`` under ``model comparisons``
 
 ### Figure 3–Figure supplement 3. Predicting behavioral memory for story details with neural measures from encoding and recall within-subjects.
 
@@ -314,21 +313,21 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality_wi
 #### ROIs
 
 **For both encoding and reinstatement:**
-``​​sh 03_Predictions_ROIs_step0.sh 20211014 within_modality_within_subj``
+``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality_within_subj``
 
 #### Analysis
 
 **Searchlight ANALYSIS**
-Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-Find the cell Labeled **Figure 3**
-Uncomment the line ``extra = 'within_modality_within_subj'``
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
+2. Find the cell Labeled **Figure 3**
+3. Uncomment the line ``extra = 'within_modality_within_subj'``
+4. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS**
-Open the jupyter notebook labeled:  ``_ImportROIsSeeResults.ipynb``
-Find the cell labeled **Figure 3**
-Uncomment the line ``extra = 'within_modality_within_subj'``
-Run to output violin plots 
+1. Open the jupyter notebook labeled:  ``_ImportROIsSeeResults.ipynb``
+2. Find the cell labeled **Figure 3**
+3. Uncomment the line ``extra = 'within_modality_within_subj'``
+4. Run to output violin plots 
 
 ### Figure 3–Figure supplement 4. Predicting behavioral memory for story details with neural measures from encoding and recall across-modality.
 
@@ -351,21 +350,22 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score across_modality
 
 **For both encoding and reinstatement:**
 In ``03_Predictions_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
-​​``sh 03_Predictions_ROIs_step0.sh 20211014 across_modality``
+
+``sh 03_Predictions_ROIs_step0.sh 20211014 across_modality``
 
 sbatch 03_Predictions_ROIs_step1.sh 20211014 None hippo roi_recall_score across_modality
 
 #### Analysis
 
 **Searchlight ANALYSIS**
-Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-Find the cell Labeled **Figure 3**
-Uncomment the line ``extra = 'across_modality'``
-Run to save brainmaps in desired output directory
+1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
+2. Find the cell Labeled **Figure 3**
+3. Uncomment the line ``extra = 'across_modality'``
+4. Run to save brainmaps in desired output directory
 
 **ROI ANALYSIS** 
-Open the jupyter notebook labeled: ``_ImportROIsSeeResults.ipynb``
-Find the cell labeled **Figure 3**
-Uncomment the line ``extra = 'across_modality'``
-Run to output violin plots 
+1. Open the jupyter notebook labeled: ``_ImportROIsSeeResults.ipynb``
+2. Find the cell labeled **Figure 3**
+3. Uncomment the line ``extra = 'across_modality'``
+4. Run to output violin plots 
 
