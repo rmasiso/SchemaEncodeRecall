@@ -66,7 +66,7 @@ sh  02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality
 
 **Searchlight analysis** 
 1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
-2. Find the cell Labeled **Figure 2**
+2. Find the cell labeled **Figure 2**
 3. Run to save brainmaps in desired output directory
 
 **ROI analysis** 
@@ -100,7 +100,7 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality
 
 **Searchlight analysis** 
 1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
-2. Find the cell Labeled **Figure 3**
+2. Find the cell labeled **Figure 3**
 3. Run to save brainmaps in desired output directory
 
 **ROI analysis** 
@@ -222,7 +222,7 @@ sh 02S1_RecallStorySchema_WithinSubj_ROIs_step0.sh 20211014
 
 **Searchlight Analysis** 
 1. Open the jupyter notebook labeled: ``_ ImportSearchlightsGenerateMaps.ipynb``
-2. Find the cell Labeled **Figure 2**
+2. Find the cell labeled **Figure 2**
 3. Uncomment the line ``extra = within_modality_within_subj``
 4. Run to save brainmaps in desired output directory
 
@@ -263,7 +263,7 @@ sbatch 02_RecallStorySchema_SLs_step1.sh 20211014 R across_modality
 
 **Searchlight Analysis** 
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-2. Find the cell Labeled **Figure 2**
+2. Find the cell labeled **Figure 2**
 3. Uncomment the line ``extra = ‘across_modality’ ``
 4. Run to save brainmaps in desired output directory
 
@@ -333,7 +333,7 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality_wi
 
 **Searchlight ANALYSIS**
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-2. Find the cell Labeled **Figure 3**
+2. Find the cell labeled **Figure 3**
 3. Uncomment the line ``extra = 'within_modality_within_subj'``
 4. Run to save brainmaps in desired output directory
 
@@ -375,7 +375,7 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score across_modality
 
 **Searchlight ANALYSIS**
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
-2. Find the cell Labeled **Figure 3**
+2. Find the cell labeled **Figure 3**
 3. Uncomment the line ``extra = 'across_modality'``
 4. Run to save brainmaps in desired output directory
 
