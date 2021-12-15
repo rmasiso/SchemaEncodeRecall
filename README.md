@@ -1,5 +1,5 @@
 # Schema representations in distinct brain networks support narrative memory during encoding and retrieval
-Code for the paper Masís-Obando, Norman, & Baldassano (submitted) Schema representations in distinct brain networks support narrative memory during encoding and retrieval
+Code for the paper *Masís-Obando, Norman, & Baldassano (submitted) Schema representations in distinct brain networks support narrative memory during encoding and retrieval*
 
 ## Project Organization
 --- insert file tree here
@@ -27,110 +27,117 @@ Hippocampus…
 
 The main idea behind these analyses involves first learning within ROIs
 
-## Main Analyses
-### Figure 1: Memory Scores
+## ======== Main Analyses ========
 
-Run the jupyter notebook ```00_MemoryPerformance_Fig1.ipynb```  to generate the file ```normalizedRubricScores_byStory.pkl``` which contains the quantified memory performance for each story for each subject. We will need this later for relating the neural scores to behavior. 
-### Figure 2: story and schema scores for searchlights and specific a priori ROIs 
+Instructions for generating the main text results.
+
+## Figure 1 
+
+Memory Scores
+
+1. Run the jupyter notebook ```00_MemoryPerformance_Fig1.ipynb```  to generate the file ```normalizedRubricScores_byStory.pkl``` which contains the quantified memory performance for each story for each subject. 
+2. We will need this later for relating the neural scores to behavior. 
 
 
+## Figure 2 
 
-#### -- ENCODING -- 
+Story and schema scores for searchlights and specific a priori ROIs
 
-**Searchlights**
+### - GENERATE -
+
+**encoding searchlights**
 ```
 sbatch 02_PerceptionStorySchema_SLs_step1.sh 20211014 L within_modality
 sbatch 02_PerceptionStorySchema_SLs_step1.sh 20211014 R within_modality
 ```
 
-**ROIs**
+**encoding ROIs**
 ```
 sh 02_PerceptionStorySchema_ROIs_step0.sh 20211014 within_modality
 ```
 
-#### -- REINSTATEMENT --
-
-**Searchlights**
+**reinstatement searchlights**
 ```
 sbatch 02_RecallStorySchema_SLs_step1.sh 20211014 L within_modality
 sbatch 02_RecallStorySchema_SLs_step1.sh 20211014 R within_modality
 ```
-**ROIs**
+**reinstatement ROIs**
 ```
 sh  02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality
 ```
 
-#### Analysis
+### - ANALYZE -
 
-**Searchlight ANALYSIS** 
+**Searchlight analysis** 
 1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
 2. Find the cell Labeled **Figure 2**
 3. Run to save brainmaps in desired output directory
 
-**ROI ANALYSIS** 
+**ROI analysis** 
 1. Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
 2. Find the cell labeled **Figure 2**
 3. Run to output violin plots 
 
-### Figure 3: Predicting behavioral memory for story details with neural measures from encoding and recall. 
+## Figure 3: 
 
-#### SEARCHLIGHTS
+Predicting behavioral memory for story details with neural measures from encoding and recall.
 
-**ENCODING** 
+### - GENERATE -
+
+**encoding searchlights** 
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_percept_score within_modality
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_percept_score within_modality
 ```
 
-**REINSTATEMENT**
+**reinstatement searchlights**
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_recall_score within_modality
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality
 ```
 
-#### ROIs
+**encoding AND reinstatement ROIs:**
+1. In ```03_Predictions_ROIs_step0.sh```, make sure that ```rois=( PMC mPFC PHC Ang SFG )```
+2. ``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
 
-**For both encoding and reinstatement:**
-In ```03_Predictions_ROIs_step0.sh```, make sure that ```rois=( PMC mPFC PHC Ang SFG )```
+### - ANALYZE -
 
-```sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
-
-#### Analysis
-
-
-**Searchlight ANALYSIS**
+**Searchlight analysis** 
 1. Open the jupyter notebook labeled: ```_ImportSearchlightsGenerateMaps.ipynb```
 2. Find the cell Labeled **Figure 3**
 3. Run to save brainmaps in desired output directory
 
-**ROI ANALYSIS**
+**ROI analysis** 
 1. Open the jupyter notebook labeled: ``` _ImportROIsSeeResults.ipynb```
 2. Find the cell labeled **Figure 3**
 3. Run to output violin plots 
 
-### Figure 4. Regions with significant schema effects and positive associations with subsequent memory.
+## Figure 4 
 
-#### SEARCHLIGHTS
+Regions with significant schema effects and positive associations with subsequent memory.
 
-To identify the benefit of including schematic information at encoding or recall in addition to story information run:
+### - GENERATE -
 
 ``sh 03S2_SchemaBenefitModelComparisons_step1.sh 2021014``
 
-#### Analysis
+### - ANALYZE -
 
-**SEARCHLIGHT**
-In the notebook titled ``ImportSearchlightsGenerateMaps`` find the cell labeled ``Figure 4`` and run the cells under it.
-Files will be saved in the default or (your desired) directory.
 
-### Figure5. Mediation analysis with mPFC subclusters.
+1. In the notebook titled ``ImportSearchlightsGenerateMaps`` find the cell labeled ``Figure 4``
+2. Run the cells under it.
+3. Files will be saved in the default or (your desired) directory.
 
-#### (1) Generate Clusters
+## Figure 5
+
+Mediation analysis with mPFC subclusters.
+
+### (1) Generate Clusters
 
 1. First we have to run the silhouette analysis and save out the clusters.
 2. Go to the jupyter notebook: ``05_Kmeans.ipynb`` and run all the cells.
 3. The clusters will be saved into`` /_data/`` as ``mPFC_c0.h5`` and ``mPFC_c1.h5`` 
 
-#### (2) Create Encoding and Reinstatement Story and Schema Scores
+### (2) Create Encoding and Reinstatement Story and Schema Scores
 
 Run the encoding and reinstatement story and schema scores:
 
@@ -146,19 +153,19 @@ Run the encoding and reinstatement story and schema scores:
 2. Uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
 3. Run in terminal with: ``sh 02_RecallStorySchema_ROIs_step0.sh 20211014 within_modality``
 
-#### (3) Use scores in step 2 to predict behavior
+### (3) Use scores in step 2 to predict behavior
 
 1. Open ``03_Predictions_ROIs_step0.sh`` 
 2. Uncomment the second “rois” line argument that contains ``rois=( mPFC_k2_c0 mPFC_k2_c1 )``
 3. Run in terminal with: ``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality``
 
-#### (4) Visualize post-hoc mPFC subclusters results
+### (4) Visualize post-hoc mPFC subclusters results
 
 1. Open ``_ImportROIsSeeResults.ipynb``
 2. Find the section titled: ``Figure5; mPFC cluster results``
 3. Run the cells to output the bar graphs.
 
-#### (4) Run Mediation Analysis
+### (5) Run Mediation Analysis
 
 1. Open the jupyter notebook ``05_Mediation.ipynb``
 2. Run all the cells
@@ -182,109 +189,114 @@ Run the encoding and reinstatement story and schema scores:
 
 
 
-## Supplementary Analyses
-### Figure 2 - Supp 1 (Encoding and Reinstatement Story and Schema Within-Subjects)
+## ======== Supplementary Analyses ========
 
-#### -- ENCODING -- 
 
-**Searchlights**
+Instructions for generating the supplementary results.
+
+## Figure 2 - Supp 1 
+
+Encoding and Reinstatement Story and Schema Within-Subjects
+
+### - GENERATE - 
+
+**encoding searchlights**
 ```
 sbatch 02S1_PerceptionStorySchema_WithinSubj_SLs_step1.sh 20211014 L 
 sbatch 02S1_PerceptionStorySchema_WithinSubj_SLs_step1.sh 20211014 R
 ```
 
-**ROIs**
+**encoding ROIs**
 ```
 sh 02S1_PerceptionStorySchema_WithinSubj_ROIs_step0.sh 20211014 
 ```
 
-#### -- REINSTATEMENT --
-
-**Searchlights**
+**reinstatement searchlights**
 ```
 sbatch 02S1_RecallStorySchema_WithinSubj_SLs_step1.sh 20211014 L
 sbatch 02S1_RecallStorySchema_WithinSubj_SLs_step1.sh 20211014 R
 
 ```
-**ROIs**
+**reinstatement ROIs**
 ```
 sh 02S1_RecallStorySchema_WithinSubj_ROIs_step0.sh 20211014
 ```
 
-#### Analysis
+### - ANALYZE - 
 
-**Searchlight ANALYSIS** 
+**Searchlight Analysis** 
 1. Open the jupyter notebook labeled: ``_ ImportSearchlightsGenerateMaps.ipynb``
 2. Find the cell Labeled **Figure 2**
 3. Uncomment the line ``extra = within_modality_within_subj``
 4. Run to save brainmaps in desired output directory
 
-**ROI ANALYSIS** 
+**ROI Analysis** 
 1. Open the jupyter notebook labeled:  ``_ImportROIsSeeResults.ipynb``
 2. Find the cell labeled **Figure 2**
 3. Uncomment the line  ``extra = within_modality_within_subj``
 4. Run to output violin plots 
 
-### Figure 2 - Supp 2 (Encoding and Reinstatement Story and Schema Across-Modality)
+## Figure 2 - Supp 2 
 
-========ACROSS MODALITY========
+Encoding and Reinstatement Story and Schema Across-Modality
 
-#### ENCODING
+### - GENERATE - 
 
-**Searchlights**
+**encoding searchlights**
 ```
 sbatch 02_PerceptionStorySchema_SLs_step1.sh 20211014 L across_modality
 sbatch 02_PerceptionStorySchema_SLs_step1.sh 20211014 R across_modality
 ```
 
-**ROIs**
-In ``02_PerceptionStorySchema_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
-
-``sh 02_PerceptionStorySchema_ROIs_step0.sh 20211014 across_modality``
-
-
-#### REINSTATEMENT
-
-**Searchlights**
+**reinstatement Searchlights**
 ```
 sbatch 02_RecallStorySchema_SLs_step1.sh 20211014 L across_modality
 sbatch 02_RecallStorySchema_SLs_step1.sh 20211014 R across_modality
 ```
-**ROIs**
-In ``02_RecallStorySchema_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
 
-``sh  02_RecallStorySchema_ROIs_step0.sh 20211014 across_modality``
+**encoding ROIs**
+1. In ``02_PerceptionStorySchema_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
+2. ``sh 02_PerceptionStorySchema_ROIs_step0.sh 20211014 across_modality``
 
-#### Analysis
 
-**Searchlight ANALYSIS** 
+**reinstatement ROIs**
+1. In ``02_RecallStorySchema_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
+2. ``sh  02_RecallStorySchema_ROIs_step0.sh 20211014 across_modality``
+
+### - ANALYZE - 
+
+**Searchlight Analysis** 
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
 2. Find the cell Labeled **Figure 2**
 3. Uncomment the line ``extra = ‘across_modality’ ``
 4. Run to save brainmaps in desired output directory
 
-**ROI ANALYSIS**
+**ROI Analysis**
 1. Open the jupyter notebook labeled: ``_ImportROIsSeeResults.ipynb``
 2. Find the cell labeled **Figure 2**
 3. Uncomment the line ``extra = ‘across_modality’``
 4. Run to output violin plots 
 
 
-### Figure 3–Figure supplement 1. Predicting PMC reinstatement story scores with encoding schema scores across cortex.
+## Figure 3–Figure Supp 1
 
-To find associations with PMC’s reinstatement story score and the rest of the brain’s encoding schema score, run the following line:
+Predicting PMC reinstatement story scores with encoding schema scores across cortex.
+
+1. To find associations with PMC’s reinstatement story score and the rest of the brain’s encoding schema score, run the following line:
 
 ```
 sbatch 03S1_SeedtoSL_step1.sh 20211014 PMC roi_recall_score story_effect SL sl_percept_score schema_effect
 ```
 
-A brainmap will be saved in the default directory `` ‘../../SchemaBigFiles/_PaperOutputData/Brainmaps’ ``
+2. A brainmap will be saved in the default directory ``../../SchemaBigFiles/_PaperOutputData/Brainmaps’ ``
 
- $date $seed_roi $seed_scoretype $seed_eff $post_roi $post_scoretype $post_eff
+<!-- $date $seed_roi $seed_scoretype $seed_eff $post_roi $post_scoretype $post_eff -->
 
-### Figure 3–Figure supplement 2. Behavioral memory benefit of neural schema scores
+## Figure 3–Figure Supp 2
 
-#### Searchlights
+Behavioral memory benefit of neural schema scores
+
+### - GENERATE -
 
 ```
 sh 03S2_SchemaBenefitModelComparisons_step1.sh 
@@ -292,33 +304,36 @@ sh 03S2_SchemaBenefitModelComparisons_step1.sh
 
 Saves searchlight results under a folder called ``sl_percept_score_model_comparisons`` and ``sl_recall_score_model_comparisons`` for the benefit analysis at encoding and retrieval, respectively.
 
-#### Analysis:
-1. Find the cell labeled: ``Figure 3 - Supplement 2``
-2. Run the cell 
-3. Brainmap will be saved in ``../../SchemaBigFiles/_PaperOutputData`` under ``model comparisons``
+### - ANALYZE -
+1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
+2. Find the cell labeled: ``Figure 3 - Supplement 2``
+3. Run the cell 
+4. Brainmap will be saved in ``../../SchemaBigFiles/_PaperOutputData`` under ``model comparisons``
 
-### Figure 3–Figure supplement 3. Predicting behavioral memory for story details with neural measures from encoding and recall within-subjects.
+## Figure 3–Figure Supp 3
 
-#### SEARCHLIGHTS
+Predicting behavioral memory for story details with neural measures from encoding and recall within-subjects.
 
-**ENCODING **
+### - GENERATE -
+
+**encoding searchlights**
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_percept_score within_modality_within_subj
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_percept_score within_modality_within_subj
 ```
 
-**REINSTATEMENT**
+**reinstatement searchlights**
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_recall_score within_modality_within_subj
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality_within_subj
 ```
 
-#### ROIs
+**ROIs**
 
 **For both encoding and reinstatement:**
 ``sh 03_Predictions_ROIs_step0.sh 20211014 within_modality_within_subj``
 
-#### Analysis
+### - ANALYZE -
 
 **Searchlight ANALYSIS**
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
@@ -332,33 +347,35 @@ sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score within_modality_wi
 3. Uncomment the line ``extra = 'within_modality_within_subj'``
 4. Run to output violin plots 
 
-### Figure 3–Figure supplement 4. Predicting behavioral memory for story details with neural measures from encoding and recall across-modality.
+### Figure 3–Figure supplement 4
+
+Predicting behavioral memory for story details with neural measures from encoding and recall across-modality.
 
 
-#### SEARCHLIGHTS
+### - GENERATE -
 
-**ENCODING **
+**encoding searchlights**
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_percept_score across_modality
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_percept_score across_modality
 ```
 
-**REINSTATEMENT**
+**reinstatement searchlights**
 ```
 sbatch 03_Predictions_SLs_step1.sh 20211014 L sl_recall_score across_modality
 sbatch 03_Predictions_SLs_step1.sh 20211014 R sl_recall_score across_modality
 ```
 
-#### ROIs
+**ROIs**
 
 **For both encoding and reinstatement:**
-In ``03_Predictions_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
+1. In ``03_Predictions_ROIs_step0.sh``, make sure that ``rois=( PMC mPFC PHC Ang SFG )``
 
-``sh 03_Predictions_ROIs_step0.sh 20211014 across_modality``
+2. ``sh 03_Predictions_ROIs_step0.sh 20211014 across_modality``
 
-sbatch 03_Predictions_ROIs_step1.sh 20211014 None hippo roi_recall_score across_modality
+<!--sbatch 03_Predictions_ROIs_step1.sh 20211014 None hippo roi_recall_score across_modality-->
 
-#### Analysis
+### - ANALYZE -
 
 **Searchlight ANALYSIS**
 1. Open the jupyter notebook labeled: ``_ImportSearchlightsGenerateMaps.ipynb``
