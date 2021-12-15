@@ -1,5 +1,5 @@
 # Schema representations in distinct brain networks support narrative memory during encoding and retrieval
-Code for the paper *Masís-Obando, Norman, & Baldassano (submitted) Schema representations in distinct brain networks support narrative memory during encoding and retrieval*
+Code for the paper *Masís-Obando, Norman, & Baldassano. Schema representations in distinct brain networks support narrative memory during encoding and retrieval*
 
 ## Project Organization
 --- insert file tree here
@@ -18,14 +18,10 @@ To run the searchlights and specific ROI analyses, the SLURM scheduler (on serve
 
 In some of the scripts below, ```module load pyger``` was used to instantiate a virtual environment with python 3.6 installed.
 
-Because the date used to generate the code was 20211014, you will find that the commands in this repository contain this date.
+Because the most recent date used to generate the code was 20211014, you will find that the commands in this repository contain this date.
 
 Run code below through instructions chronologically. 
 
-
-Hippocampus…
-
-The main idea behind these analyses involves first learning within ROIs
 
 ## ======== Main Analyses ========
 
