@@ -10,17 +10,17 @@ ParentFolder # parent folder
 │
 ├── SchemaBigFiles # folder for larger files that are generated from analysis
 │	└──_PaperOutputData
-│        ├── Brainmaps 								
-│        ├── roi_percept_score
-│        ├── roi_percept_score_predictions
-│        ├── roi_recall_score
-│        ├── roi_recall_score_predictions
-│        ├── sl_percept_score
-│        ├── sl_percept_score_model_comparisons
-│        ├── sl_percept_score_predictions
-│        ├── sl_recall_score
-│        ├── sl_recall_score_model_comparisons
-│        └── sl_recall_score_predictions
+│          ├── Brainmaps 								
+│          ├── roi_percept_score
+│          ├── roi_percept_score_predictions
+│          ├── roi_recall_score
+│          ├── roi_recall_score_predictions
+│          ├── sl_percept_score
+│          ├── sl_percept_score_model_comparisons
+│          ├── sl_percept_score_predictions
+│          ├── sl_recall_score
+│          ├── sl_recall_score_model_comparisons
+│          └── sl_recall_score_predictions
 │ 
 └── SchemaEncodeRecall # This Repository                           
     ├── _analysis	     # folder with scripts and notebooks
