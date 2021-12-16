@@ -6,9 +6,9 @@ Code for the paper *Masís-Obando, Norman, & Baldassano. Schema representations 
 You should set up a parent folder with two subfolders, one called "SchemaBigFiles" (or whatever you want) and the other can be a clone of this repository which will be named "SchemaEncodeRecall". 
 
 ```
-ParentFolder 										              # parent folder
+ParentFolder 										 # parent folder
 │
-├── SchemaBigFiles									          # folder for larger files that are generated from analysis
+├── SchemaBigFiles						# folder for larger files that are generated from analysis
 │	└──_PaperOutputData
 │      ├── Brainmaps 								
 │      ├── roi_percept_score
@@ -22,14 +22,14 @@ ParentFolder 										              # parent folder
 │      ├── sl_recall_score_model_comparisons
 │      └── sl_recall_score_predictions
 │ 
-└── SchemaEncodeRecall								          # This Repository                           
-    ├── _analysis									              # folder with scripts and notebooks
-    │   └── figs									              # folder for saved figure .pngs
+└── SchemaEncodeRecall								 # This Repository                           
+    ├── _analysis									     # folder with scripts and notebooks
+    │   └── figs									      # folder for saved figure .pngs
     │   
-    └── _data 										              # some of smaller size data
-        ├── kmeans									            # folder for outputs used for kmeans analysis
-        ├── ROIs 									              # folder with different cortical and hippocampal ROIs
-        └── Rubrics 								            # rubrics also available at https://osf.io/fxwg2/?view_only=d5b13bee9a2f4eb882d7533cbc1be1c4
+    └── _data 										       # some of smaller size data
+        ├── kmeans									    # folder for outputs used for kmeans analysis
+        ├── ROIs 									     # folder with different cortical and hippocampal ROIs
+        └── Rubrics 								   # rubrics also available at https://osf.io/fxwg2/?view_only=d5b13bee9a2f4eb882d7533cbc1be1c4
 ```
 
 ## Data
