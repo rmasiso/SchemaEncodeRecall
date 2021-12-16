@@ -2,11 +2,40 @@
 Code for the paper *Masís-Obando, Norman, & Baldassano. Schema representations in distinct brain networks support narrative memory during encoding and retrieval*
 
 ## Project Organization
---- insert file tree here
+
+You should set up a parent folder with two subfolders, one called "SchemaBigFiles" (or whatever you want) and the other can be a clone of this repository which will be named "SchemaEncodeRecall". 
+
+```
+ParentFolder 										              # parent folder
+│
+├── SchemaBigFiles									          # folder for larger files that are generated from analysis
+│	└──_PaperOutputData
+│      ├── Brainmaps 								
+│      ├── roi_percept_score
+│      ├── roi_percept_score_predictions
+│      ├── roi_recall_score
+│      ├── roi_recall_score_predictions
+│      ├── sl_percept_score
+│      ├── sl_percept_score_model_comparisons
+│      ├── sl_percept_score_predictions
+│      ├── sl_recall_score
+│      ├── sl_recall_score_model_comparisons
+│      └── sl_recall_score_predictions
+│ 
+└── SchemaEncodeRecall								          # This Repository                           
+    ├── _analysis									              # folder with scripts and notebooks
+    │   └── figs									              # folder for saved figure .pngs
+    │   
+    └── _data 										              # some of smaller size data
+        ├── kmeans									            # folder for outputs used for kmeans analysis
+        ├── ROIs 									              # folder with different cortical and hippocampal ROIs
+        └── Rubrics 								            # rubrics also available at https://osf.io/fxwg2/?view_only=d5b13bee9a2f4eb882d7533cbc1be1c4
+```
 
 ## Data
 
 Both encoding and recall neural data in BIDS format is available at [OpenNeuro](https://openneuro.org/datasets/ds001510).
+
 
 ## Preprocessing
 
