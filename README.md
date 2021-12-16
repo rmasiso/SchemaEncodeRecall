@@ -10,8 +10,8 @@ ParentFolder # parent folder
 │
 ├── SchemaBigFiles # folder for larger files that are generated from analysis
 │	└──_PaperOutputData
-│      ├── Brainmaps 								
-│      ├── roi_percept_score
+│      ├── Brainmaps 								
+│      ├── roi_percept_score
 │      ├── roi_percept_score_predictions
 │      ├── roi_recall_score
 │      ├── roi_recall_score_predictions
